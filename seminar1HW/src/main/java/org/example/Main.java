@@ -3,8 +3,6 @@ package org.example;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParser;
 
 import java.io.*;
 
@@ -48,14 +46,20 @@ public class Main {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
         objectMapper.writeValue(stringWriter, person2);
-        File file = new File("person.json");
+        File file = new File("seminar1HW/src/main/resources/person.json");
         objectMapper.writeValue(file, person2);
         System.out.println(stringWriter);
 
         System.out.println("Десериализация строки JSON обратно в объект Person =>");
-//        Object o = (new JsonParser().parse(new FileReader("person.json")));
+//        Object o = (new JsonParser().parse(new FileReader("")));
 //        System.out.println(o);
         Person person4 = objectMapper.readValue(file, Person.class);
         System.out.println(person4);
+
+/*   Комментарии преподавателя:
+Согласно чистой архитектуре, класс Person является доменным и должен лежать в области бизнес логики,
+в пакете Model или Domain. Но в вашем случае было достаточно просто папки Domain.
+Не забывайте комментировать код, это важно!
+*/
     }
 }
