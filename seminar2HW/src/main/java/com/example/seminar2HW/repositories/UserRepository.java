@@ -1,6 +1,7 @@
 package com.example.seminar2HW.repositories;
 
 import com.example.seminar2HW.model.User;
+import com.example.seminar2HW.utils.UserMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -13,12 +14,12 @@ import java.util.List;
 @Repository
 public class UserRepository {
     /**
-     * поле для работы с базой донных
+     * поле для работы с базой донных (объект подключения к БД)
      */
     private final JdbcTemplate jdbc;
 
     /**
-     * Конструктор
+     * Конструктор класса
      * @param jdbc класс для работы с базой донных
      */
     public UserRepository(JdbcTemplate jdbc) {
@@ -63,13 +64,24 @@ public class UserRepository {
     }
 
     /**
-     * Метод изменения пользователя
+     * Метод изменения пользователя в БД
      * @param user пользователь, которого меняем
-     * @return пользователь, которого меняем
      */
-    public User updateUser(User user) {
+    public void updateUser(User user) {
         String sql = "UPDATE userTable SET firstName=? lastName=? WHERE id=?";
-        jdbc.update(sql, null, null, user.getId());
-        return user;
+        jdbc.update(sql, user.getFirstName(), user.getLastName(), user.getId());
+    }
+
+    public User findUserByID(int id) {
+        String sql = "SELECT * FROM userTable WHERE id=?";
+//        RowMapper<User> userRowMapper = (r, i) -> {
+//            User rowObject = new User();
+//            rowObject.setId(r.getInt("id"));
+//            rowObject.setFirstName(r.getString("firstName"));
+//            rowObject.setLastName(r.getString("lastName"));
+//            return rowObject;
+//        };
+//        return jdbc.query(sql, userRowMapper).stream().findFirst().orElse(null);
+        return jdbc.query(sql, new Object[]{id}, new UserMapper()).stream().findFirst().orElse(null);
     }
 }

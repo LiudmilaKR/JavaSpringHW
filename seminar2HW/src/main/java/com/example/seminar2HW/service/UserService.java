@@ -53,10 +53,13 @@ public class UserService {
 
     /**
      * Метод изменения пользователя
-     * @param user пользователь, которого меняем
-     * @return пользователь, которого меняем
+     * @param user пользователь с новыми данными
      */
-    public User updateUser(User user) {
-        return userRepository.updateUser(user);
+    public void updateUser(User user) {
+        userRepository.updateUser(user);
+    }
+
+    public User getUserById(int id) {
+        return userRepository.findUserByID(id);
     }
 }
