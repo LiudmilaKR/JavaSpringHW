@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * класс UserController является контроллером и обрабатывает http-запросы по пользователям
@@ -66,5 +67,15 @@ public class UserController {
         newUser.setEmail(user.getEmail());
         service.addUser(newUser);
         return "User was added!";
+    }
+
+//    код Евгения
+    @PostMapping("/body3")
+    public String userAddFromBody1(@RequestBody Map<String, Object> requestBody) {
+        String name = (String) requestBody.get("name");
+        Integer age = (Integer) requestBody.get("age");
+        String email = (String) requestBody.get("email");
+        service.processRegistration(name, age, email);
+        return "User added from body!";
     }
 }

@@ -30,6 +30,7 @@ public class UserRepositoryH2 {
     public List<User> getU() {
         String sql = "SELECT * FROM userTable";
 
+//  String sql = "SELECT * FROM \"user\""  - код Евгения
         RowMapper<User> userRowMapper = (r, i) -> {
             User rowObject = new User();
             rowObject.setName(r.getString("name"));
@@ -38,5 +39,11 @@ public class UserRepositoryH2 {
             return rowObject;
         };
         return jdbc.query(sql, userRowMapper);
+    }
+
+//    код Евгения
+    public void addU(User user) {
+        String sql = "INSERT INTO \"user\" (name, age, email) VALUES (?, ?, ?)";
+        jdbc.update(sql, user.getName(), user.getAge(), user.getEmail());
     }
 }

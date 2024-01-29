@@ -67,21 +67,23 @@ public class UserRepository {
      * Метод изменения пользователя в БД
      * @param user пользователь, которого меняем
      */
-    public void updateUser(User user) {
-        String sql = "UPDATE userTable SET firstName=? lastName=? WHERE id=?";
+    public User updateUser(User user) {
+        String sql = "UPDATE userTable SET firstName=?, lastName=? WHERE id=?";
         jdbc.update(sql, user.getFirstName(), user.getLastName(), user.getId());
+        return user;
     }
 
     public User findUserByID(int id) {
-        String sql = "SELECT * FROM userTable WHERE id=?";
-//        RowMapper<User> userRowMapper = (r, i) -> {
-//            User rowObject = new User();
-//            rowObject.setId(r.getInt("id"));
-//            rowObject.setFirstName(r.getString("firstName"));
-//            rowObject.setLastName(r.getString("lastName"));
-//            return rowObject;
-//        };
-//        return jdbc.query(sql, userRowMapper).stream().findFirst().orElse(null);
-        return jdbc.query(sql, new Object[]{id}, new UserMapper()).stream().findFirst().orElse(null);
+        String sql = "SELECT * FROM userTable WHERE id=" + id;
+//        String sql = "SELECT * FROM userTable WHERE id=?";
+        RowMapper<User> userRowMapper = (r, i) -> {
+            User rowObject = new User();
+            rowObject.setId(r.getInt("id"));
+            rowObject.setFirstName(r.getString("firstName"));
+            rowObject.setLastName(r.getString("lastName"));
+            return rowObject;
+        };
+        return jdbc.query(sql, userRowMapper).stream().findFirst().orElse(null);
+//        return jdbc.query(sql, new Object[]{id}, new UserMapper()).stream().findFirst().orElse(null);
     }
 }
