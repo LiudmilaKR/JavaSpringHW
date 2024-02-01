@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Котики</title>
+<!--    <link rel="stylesheet" href="style.css">-->
+    <link th:href="@{/style.css}" rel="stylesheet">
+</head>
+<body>
+    <h1>Поговорим о котах!</h1>
+    <h2>Смотрите, какие они милые!</h2>
+    <img src="https://wdorogu.ru/images/wp-content/uploads/2020/10/2048x1365_896594_www.ArtFile.ru_.jpg" alt="котятки" width="500">
+    <img src="https://wp-s.ru/wallpapers/6/3/561029086232966/otdyxayushhij-kotenok-s-ustalym-vzglyadom.jpg" alt="котёнок" width="535">
+    <h2>Ваш выбор => <span th:text="${cat}"></span></h2>
+</body>
+</html>
