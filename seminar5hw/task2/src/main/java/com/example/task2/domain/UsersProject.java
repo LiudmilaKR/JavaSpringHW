@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "users_project")
 @NoArgsConstructor
 @AllArgsConstructor
-public class UsersProject{
+public class UsersProject extends EntityWithRelation{
 
     /**
      * Поле id таблицы users_project
@@ -30,13 +30,10 @@ public class UsersProject{
     @JoinColumn(name = "related_user_id")
     private User relatedUserId;
 
-//    @Column(name = "related_project_id")
-//    @PrimaryKeyJoinColumn(name = "related_project_id")
     /**
      * Поле относящийся к пользователю проект (из таблицы projects)
      */
     @OneToOne
     @JoinColumn(name = "related_project_id")
     private Project relatedProjectId;
-
 }

@@ -4,12 +4,14 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 //@MappedSuperclass
+//@Data
+//@Entity
 public abstract class EntityWithRelation {
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-////    @Column(name = "project_id")
+//    @Column(nullable = false, unique = true)
 //    private Long id;
-//
+
 //    @Column(name = "related_entity_id")
 //    private Long relatedEntityId;
 }

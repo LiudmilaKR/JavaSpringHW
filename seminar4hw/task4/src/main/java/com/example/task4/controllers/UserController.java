@@ -32,7 +32,9 @@ public class UserController {
      */
     @GetMapping("/users")
     public String getAllUsers(Model model) {
+        log.info("Запрос на отображение списка задач.");
         List<User> userList = userService.getAllUsers();
+        log.info(String.format("Получено %d задач из базы данных.", userList.size()));
         model.addAttribute("users", userList);
         return "user-list";
     }

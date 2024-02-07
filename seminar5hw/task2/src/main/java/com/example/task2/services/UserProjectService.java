@@ -60,7 +60,7 @@ public class UserProjectService {
         return null;
     }
 //     - метод, возвращающий список проектов, связанных с определенным пользователем
-
+//
     public void addUserToProject(Long userId, Long projectId) {
         Optional<UsersProject> usersProject = usersProjectRepository.findById(projectId);
         if (usersProject.isPresent()) {
