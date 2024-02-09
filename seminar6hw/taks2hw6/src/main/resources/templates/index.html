@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Рик и Морти</h1>
+        <div class="parent" th:each="char:${characters}">
+            <div class="block">
+                <h3 th:text="${char.name}"></h3>
+                <img class="img" th:src="@{${char.image}}">
+                <p th:text="${char.status}"></p>
+                <p th:text="${char.species}"></p>
+                <p th:text="${char.type}"></p>
+                <p th:text="${char.gender}"></p>
+                <p th:text="${char.created}"></p>
+            </div>
+        </div>
+<!--        <table>-->
+<!--            <tr th:each="char:${characters}">-->
+<!--                <td th:text="${char.name}"></td>-->
+<!--                <td th:text="${char.status}"></td>-->
+<!--            </tr>-->
+<!--        </table>-->
+    </div>
+</body>
+</html>
