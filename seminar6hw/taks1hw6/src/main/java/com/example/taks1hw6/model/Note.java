@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @NoArgsConstructor
+@Table(name = "notes")
 public class Note {
     /**
      * Поле id заметки
