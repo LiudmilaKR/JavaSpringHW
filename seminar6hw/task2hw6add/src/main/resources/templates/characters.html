@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rick and Morty Characters</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <h1>Список персонажей Рик и Морти</h1>
+<!--кнопка "фильтровать"-->
+    <div class="filter-button-container">
+        <a th:href="@{/character/filter}" class="filter-button">фильтровать</a>
+        <a th:href="@{/character}" class="filter-button">в начало</a>
+    </div>
+<!--pagination link-->
+    <div class="pagination-links">
+        <a th:if="${prevPage}" th:href="@{/character(page=${prevPage})}" class="filter-button">назад</a>
+        <a th:if="${nextPage}" th:href="@{/character(page=${nextPage})}" class="filter-button">вперед</a>
+    </div>
+    <div class="characters-container">
+
+    </div>
+</body>
+</html>
