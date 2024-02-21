@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RunAllApplications" type="CompoundRunConfigurationType">
+    <toRun name="eurekaServer" type="Application" />
+    <toRun name="gatewayServer" type="Application" />
+    <toRun name="notesService" type="Application" />
+    <method v="2" />
+  </configuration>
+</component>
