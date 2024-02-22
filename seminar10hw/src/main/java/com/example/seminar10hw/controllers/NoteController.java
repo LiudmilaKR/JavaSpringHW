@@ -1,7 +1,7 @@
-package com.example.noteService.controllers;
+package com.example.seminar10hw.controllers;
 
-import com.example.noteService.model.Note;
-import com.example.noteService.services.NoteService;
+import com.example.seminar10hw.model.Note;
+import com.example.seminar10hw.services.NoteService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
