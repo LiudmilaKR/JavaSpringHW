@@ -1,0 +1,7 @@
+2024-02-27T22:12:28.335778200 Getting all available notes
+2024-02-27T22:12:34.302282800 Adding note to the db 'notes'
+2024-02-27T22:12:37.832864700 Adding note to the db 'notes'
+2024-02-27T22:12:41.182269600 Adding note to the db 'notes'
+2024-02-27T22:12:53.315228800 Getting note by id from the db 'notes'
+2024-02-27T22:13:00.764889600 Getting note by id from the db 'notes'
+2024-02-27T22:13:00.770890900 Deleting not by id from the db 'notes'
